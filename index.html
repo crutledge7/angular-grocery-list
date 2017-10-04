@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <!-- Pulling in Angular Script-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Shopping List</title>
-    <body>
+    <body class="w3-green">
         
         <script>
         var app = angular.module("myShoppingList", []);
@@ -29,15 +30,15 @@
         
         </script>
         
-        <div ng-app="myShoppingList" ng-cloack ng-controller="myCtrl" class="w3-card-2 w3-margin" style="max-width:400px;">
+        <div ng-app="myShoppingList" ng-cloack ng-controller="myCtrl" class="w3-card-2" style="width:100%; ">
             <header class="w3-container w3-green w3-padding-16">
-    <h3>Your Shopping List</h3>
+    <h3 style="text-align: center;">Your Shopping List</h3>
   </header>
             <ul class="w3-ul">
-                <li ng-repeat="x in products" class="w3-padding-16 w3-sand" style="font-size:1.2em;">
+                <li ng-repeat="x in products" class="w3-padding-16 w3-white" style="font-size:1.2em;">
                 {{x}}
                     <span ng-click="removeItem($index)" style="cursor:pointer; font-size:20px" class="w3-right w3-margin-right">
-                    <i class="fa fa-window-close" aria-hidden="true"></i>
+                    <i class="fa fa-window-close" aria-hidden="true" style="font-size: 30px;"></i>
                     </span>
                 </li>
             </ul>
@@ -47,12 +48,13 @@
                         <input placeholder="Add items here" ng-model="addMe" class="w3-input w3-border w3-padding">
                     </div> 
                     <div class="w3-col s2">
-                        <button ng-click="addItem()" class="w3-btn w3-padding w3-green"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                        <button ng-click="addItem()" class="w3-btn w3-padding w3-green" ><i class="fa fa-cart-plus" aria-hidden="true" style="font-size: 1.5em;"></i></button>
                     </div>
                 </div>
                 <p class="w3-text-red">{{errortext}}</p>
             </div>
+            
         </div>
-        
+        <h2 style="text-align: center; padding-top: 5%;">Please add items <br>to the cart above <i class="fa fa-hand-pointer-o" aria-hidden="true"></i> </h2>
     </body>
 </html>
