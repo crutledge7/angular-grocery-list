@@ -26,7 +26,19 @@
                 $scope.errortexts = "";
                     $scope.products.splice(x, 1);
                 }
+                
+                
             });
+            
+            
+            angular.module('app', [])
+    .controller('MyCtrl', function ($scope) {
+        $scope.submitForm = function () {
+            $scope.myForm.myField.$setPristine(); // doesn't work
+            $scope.myForm.myField.$setPristine(true); // doesn't work
+            $scope.myField = ''; // doesn't work
+        };
+    });
         
         </script>
         
@@ -35,7 +47,7 @@
     <h3 style="text-align: center;">Your Shopping List</h3>
   </header>
             <ul class="w3-ul">
-                <li ng-repeat="x in products" class="w3-padding-16 w3-white" style="font-size:1.2em;">
+                <li ng-repeat="x in products" class="w3-padding-32 w3-white" style="font-size:1.2em; font-family: sans-serif; padding:15px; ">
                 {{x}}
                     <span ng-click="removeItem($index)" style="cursor:pointer; font-size:20px" class="w3-right w3-margin-right">
                     <i class="fa fa-window-close" aria-hidden="true" style="font-size: 30px;"></i>
@@ -45,7 +57,7 @@
             <div class="w3-container w3-light-grey w3-padding-16">
                 <div class="w3-row w3-margin-top">
                     <div class="w3-col s10">
-                        <input placeholder="Add items here" ng-model="addMe" class="w3-input w3-border w3-padding">
+                        <input placeholder="Add items here" ng-model="addMe" class="w3-input w3-border w3-padding" >
                     </div> 
                     <div class="w3-col s2">
                         <button ng-click="addItem()" class="w3-btn w3-padding w3-green" ><i class="fa fa-cart-plus" aria-hidden="true" style="font-size: 1.5em;"></i></button>
@@ -57,4 +69,5 @@
         </div>
         <h2 style="text-align: center; padding-top: 5%;">Please add items <br>to the cart above <i class="fa fa-hand-pointer-o" aria-hidden="true"></i> </h2>
     </body>
+    
 </html>
